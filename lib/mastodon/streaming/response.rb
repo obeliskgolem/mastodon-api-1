@@ -34,6 +34,8 @@ module Mastodon
           type = has_data[1]
           data = has_data[2]
 
+          next if !(type == "update")   # a validation check before parsing JSON
+
           @block.call(type, JSON.parse(data))
         end
       end
