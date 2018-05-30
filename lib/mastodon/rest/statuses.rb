@@ -29,6 +29,16 @@ module Mastodon
         perform_request_with_object(:post, '/api/v1/statuses', params, Mastodon::Status)
       end
 
+      # Added a customized function to enable the creation of spoiler_texted toot
+      def create_status_with_spoiler(text, spoiler, *args)
+        params = normalize_status_params(*args)
+        params[:status] = text
+        params['media_ids[]'] ||= params.delete(:media_ids)
+        params[:spoiler_text] = spoiler
+
+        perform_request_with_object(:post, '/api/v1/statuses', params, Mastodon::Status)
+      end
+
       # Retrieve status
       # @param id [Integer]
       # @return [Mastodon::Status]
