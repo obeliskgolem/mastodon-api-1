@@ -1,4 +1,5 @@
 require 'mastodon/status'
+require 'mastodon/notification'
 require 'mastodon/streaming/deleted_status'
 
 module Mastodon
