@@ -6,9 +6,9 @@ module Mastodon
   module Streaming
     class MessageParser
       MESSAGE_TYPES = {
-        'update' => Status,
-        'notification' => Notification,
-        'delete' => DeletedStatus,
+        'update' => Mastodon::Status,
+        'notification' => Mastodon::Notification,
+        'delete' => Mastodon::Streaming::DeletedStatus,
       }.freeze
 
       def self.parse(type, data)
