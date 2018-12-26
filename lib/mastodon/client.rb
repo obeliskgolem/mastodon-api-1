@@ -3,8 +3,8 @@ require 'mastodon/version'
 module Mastodon
   class Client
     DEFAULT_TIMEOUT = {
-      connect: 2,
-      read: 5,
+      connect: 20,
+      read: 15,
       write: 20,
     }.freeze
 
